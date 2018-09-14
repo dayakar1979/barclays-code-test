@@ -10,6 +10,7 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./exchange-rates.component.css']
 })
 export class ExchangeRatesComponent implements OnInit {
+  
   exchangeRateList: any = [];
   selectedDateModel: any = new Date();
   selectedBaseModel: any = 'EUR';
