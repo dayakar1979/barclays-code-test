@@ -11,8 +11,8 @@
         </tr>
         <tr *ngFor="let exchangeRate of exchangeRateList">
           <td [style.color]="exchangeRate.color">{{exchangeRate.currency}}</td>
-          <td [style.color]="exchangeRate.color">{{exchangeRate.buy}}</td>
-          <td [style.color]="exchangeRate.color">{{exchangeRate.sell}}</td>
+          <td [style.color]="exchangeRate.color">{{exchangeRate.buy | number : '1.4'}}</td>
+          <td [style.color]="exchangeRate.color">{{exchangeRate.sell | number : '1.4'}}</td>
         </tr>
       </table>
     </div>
