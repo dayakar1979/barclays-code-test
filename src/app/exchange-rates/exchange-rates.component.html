@@ -1,0 +1,40 @@
+<div id="container">
+  <h3 style="text-align: center">Exchange Rates</h3>
+  <div id="sides">
+    <div id="right" >
+      <table id="rates" sortable-table (sorted)="onSorted($event)">
+
+        <tr>
+          <th sortable-column="currency" sort-direction="asc">Currency</th>
+          <th sortable-column="buy">Buy</th>
+          <th sortable-column="sell">Sell</th>
+        </tr>
+        <tr *ngFor="let exchangeRate of exchangeRateList">
+          <td [style.color]="exchangeRate.color">{{exchangeRate.currency}}</td>
+          <td [style.color]="exchangeRate.color">{{exchangeRate.buy}}</td>
+          <td [style.color]="exchangeRate.color">{{exchangeRate.sell}}</td>
+        </tr>
+      </table>
+    </div>
+    <div id="left">
+      <div>
+        Base:
+        <select style="width: 100px;" (change)="changeValue($event)" [(ngModel)]="selectedBaseModel">
+          <option *ngFor="let base of baseOptions" [value]="base.id">{{base.name}}</option>
+        </select>
+      </div>
+      <div style="margin-top: 20px;">
+        Date:
+        <input type="date" (change)="dateChange($event)" name="dateCurrency" name="selectedDateModel" [(ngModel)]="selectedDateModel">
+      </div>
+      <div style="margin-top: 20px;">
+        <button style="height: 25px; width: 80px" type="button" 
+        (click)="getExchangeRates(false)">Display</button>
+          <!-- <i class="fa fa-search"></i> --> 
+      </div>
+      <div style="margin-top: 20px;">
+        <span style="color: red">{{errorMessage}}</span>
+      </div>
+    </div>
+  </div>
+</div>
